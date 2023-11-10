@@ -1,0 +1,447 @@
+{
+    "metadata": {
+        "streamsync_version": "0.2.8"
+    },
+    "components": {
+        "root": {
+            "id": "root",
+            "type": "root",
+            "content": {
+                "appName": "My App"
+            },
+            "parentId": null,
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "c0f99a9e-5004-4e75-a6c6-36f17490b134": {
+            "id": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "type": "page",
+            "content": {
+                "pageMode": "compact",
+                "emptinessColor": "#e9eef1"
+            },
+            "parentId": "root",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "bebc5fe9-63a7-46a7-b0fa-62303555cfaf": {
+            "id": "bebc5fe9-63a7-46a7-b0fa-62303555cfaf",
+            "type": "header",
+            "content": {
+                "text": "@{my_app.title}",
+                "accentColor": "@{my_app.primary}"
+            },
+            "parentId": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "vbcs0zasw0hb0gfw": {
+            "id": "vbcs0zasw0hb0gfw",
+            "type": "section",
+            "content": {
+                "title": "Manage Files",
+                "snapMode": "no"
+            },
+            "parentId": "htx8t4wz8yafc1mm",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "u73bi6tqdbmv5vi8": {
+            "id": "u73bi6tqdbmv5vi8",
+            "type": "columns",
+            "content": {},
+            "parentId": "vbcs0zasw0hb0gfw",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "nzz3eq4dhgoo3l6c": {
+            "id": "nzz3eq4dhgoo3l6c",
+            "type": "column",
+            "content": {
+                "width": "1"
+            },
+            "parentId": "u73bi6tqdbmv5vi8",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "86qjwsj9e8nphlgw": {
+            "id": "86qjwsj9e8nphlgw",
+            "type": "fileinput",
+            "content": {
+                "label": "Add file to process",
+                "allowMultipleFiles": "no"
+            },
+            "parentId": "dvjg3iy3lxkokfuw",
+            "position": 0,
+            "handlers": {
+                "ss-file-change": "file_change_name"
+            },
+            "binding": {
+                "eventType": "ss-file-change",
+                "stateRef": "database.input_file"
+            },
+            "visible": true
+        },
+        "58xufa3sx8f9ivrm": {
+            "id": "58xufa3sx8f9ivrm",
+            "type": "separator",
+            "content": {},
+            "parentId": "vbcs0zasw0hb0gfw",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "zk4kstzh3e9487dm": {
+            "id": "zk4kstzh3e9487dm",
+            "type": "heading",
+            "content": {
+                "text": "Stored Files",
+                "alignment": "center"
+            },
+            "parentId": "htx8t4wz8yafc1mm",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "ojr5hlwl6myxqz7u": {
+            "id": "ojr5hlwl6myxqz7u",
+            "type": "tabs",
+            "content": {},
+            "parentId": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "htx8t4wz8yafc1mm": {
+            "id": "htx8t4wz8yafc1mm",
+            "type": "tab",
+            "content": {
+                "name": "Manage Files"
+            },
+            "parentId": "ojr5hlwl6myxqz7u",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "zro97bxtpce6kowq": {
+            "id": "zro97bxtpce6kowq",
+            "type": "tab",
+            "content": {
+                "name": "Ask Questions"
+            },
+            "parentId": "ojr5hlwl6myxqz7u",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "4ovdhq2auk9awvtd": {
+            "id": "4ovdhq2auk9awvtd",
+            "type": "section",
+            "content": {
+                "title": "Ask Questions to Chatbot",
+                "snapMode": "no"
+            },
+            "parentId": "zro97bxtpce6kowq",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "4rq7zacn23a5usil": {
+            "id": "4rq7zacn23a5usil",
+            "type": "textareainput",
+            "content": {
+                "label": "Ask whatever is on your mind",
+                "placeholder": "Ask any question about the files you have indexed",
+                "rows": "5"
+            },
+            "parentId": "4ovdhq2auk9awvtd",
+            "position": 0,
+            "handlers": {},
+            "binding": {
+                "eventType": "ss-change",
+                "stateRef": "chatbot.query"
+            },
+            "visible": true
+        },
+        "vg0x2u91fl5sxvv8": {
+            "id": "vg0x2u91fl5sxvv8",
+            "type": "button",
+            "content": {
+                "text": "Query",
+                "buttonColor": "@{my_app.primary}",
+                "buttonTextColor": "@{my_app.primary_text}"
+            },
+            "parentId": "4ovdhq2auk9awvtd",
+            "position": 1,
+            "handlers": {
+                "ss-click": "get_chatbot_response"
+            },
+            "visible": true
+        },
+        "ivmmgyw10i999w5u": {
+            "id": "ivmmgyw10i999w5u",
+            "type": "separator",
+            "content": {},
+            "parentId": "zro97bxtpce6kowq",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "dnl0hkod6p0xsshp": {
+            "id": "dnl0hkod6p0xsshp",
+            "type": "heading",
+            "content": {
+                "text": "Chatbot Reponse",
+                "alignment": "center"
+            },
+            "parentId": "zro97bxtpce6kowq",
+            "position": 2,
+            "handlers": {},
+            "visible": true
+        },
+        "y47dzylar37ew4ei": {
+            "id": "y47dzylar37ew4ei",
+            "type": "text",
+            "content": {
+                "text": "@{chatbot.response}",
+                "useMarkdown": "yes"
+            },
+            "parentId": "zro97bxtpce6kowq",
+            "position": 3,
+            "handlers": {},
+            "visible": "chatbot.response_visible"
+        },
+        "zk4b6tbhsirpi5a4": {
+            "id": "zk4b6tbhsirpi5a4",
+            "type": "button",
+            "content": {
+                "text": "Process File",
+                "buttonColor": "@{my_app.primary}",
+                "buttonTextColor": "@{my_app.primary_text}"
+            },
+            "parentId": "dvjg3iy3lxkokfuw",
+            "position": 1,
+            "handlers": {
+                "ss-click": "add_file_to_db"
+            },
+            "visible": true
+        },
+        "yvlr658dpk9dxg8d": {
+            "id": "yvlr658dpk9dxg8d",
+            "type": "repeater",
+            "content": {
+                "keyVariable": "itemId",
+                "valueVariable": "item",
+                "repeaterObject": "@{database.files}"
+            },
+            "parentId": "htx8t4wz8yafc1mm",
+            "position": 2,
+            "handlers": {},
+            "visible": true
+        },
+        "clkhzc4sm1xvfdgj": {
+            "id": "clkhzc4sm1xvfdgj",
+            "type": "html",
+            "content": {
+                "styles": "{\n  \"padding\": \"16px\",\n  \"min-height\": \"64px\",\n  \"min-width\": \"64px\",\n  \"border-radius\": \"8px\"\n}"
+            },
+            "parentId": "yvlr658dpk9dxg8d",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "u1hoprzbi437ibgx": {
+            "id": "u1hoprzbi437ibgx",
+            "type": "columns",
+            "content": {},
+            "parentId": "clkhzc4sm1xvfdgj",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "wwwkammz843m9okm": {
+            "id": "wwwkammz843m9okm",
+            "type": "column",
+            "content": {
+                "width": "1",
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "title": ""
+            },
+            "parentId": "u1hoprzbi437ibgx",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "w7m3vyy90rbeo3gf": {
+            "id": "w7m3vyy90rbeo3gf",
+            "type": "column",
+            "content": {
+                "width": "1"
+            },
+            "parentId": "u1hoprzbi437ibgx",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "t7u69gg26y6xbckm": {
+            "id": "t7u69gg26y6xbckm",
+            "type": "column",
+            "content": {
+                "width": "1",
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center"
+            },
+            "parentId": "u1hoprzbi437ibgx",
+            "position": 2,
+            "handlers": {},
+            "visible": true
+        },
+        "0c6dbx6uiki8atiu": {
+            "id": "0c6dbx6uiki8atiu",
+            "type": "text",
+            "content": {
+                "text": "* Number of chunks: @{item.chunks}\n* Created Time: @{item.createdat}",
+                "useMarkdown": "yes"
+            },
+            "parentId": "w7m3vyy90rbeo3gf",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "zavhitenmhgzdig4": {
+            "id": "zavhitenmhgzdig4",
+            "type": "separator",
+            "content": {},
+            "parentId": "clkhzc4sm1xvfdgj",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "jum682zcfcpruibn": {
+            "id": "jum682zcfcpruibn",
+            "type": "text",
+            "content": {
+                "text": "## File **@{item.fname}**",
+                "useMarkdown": "yes"
+            },
+            "parentId": "wwwkammz843m9okm",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "xbilawqfdvqzv21n": {
+            "id": "xbilawqfdvqzv21n",
+            "type": "columns",
+            "content": {},
+            "parentId": "t7u69gg26y6xbckm",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "s5vgsdanhuv8cqq1": {
+            "id": "s5vgsdanhuv8cqq1",
+            "type": "column",
+            "content": {
+                "width": "1",
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center"
+            },
+            "parentId": "xbilawqfdvqzv21n",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "wmhnocypjz0duq9i": {
+            "id": "wmhnocypjz0duq9i",
+            "type": "column",
+            "content": {
+                "width": "1"
+            },
+            "parentId": "xbilawqfdvqzv21n",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "aaketvbiex1bv0kn": {
+            "id": "aaketvbiex1bv0kn",
+            "type": "button",
+            "content": {
+                "text": "Remove File",
+                "buttonColor": "@{my_app.danger}",
+                "buttonTextColor": "@{my_app.primary_text}"
+            },
+            "parentId": "wmhnocypjz0duq9i",
+            "position": 0,
+            "handlers": {
+                "ss-click": "db_selection_delete"
+            },
+            "visible": true
+        },
+        "k4mxvu5ifafqznv1": {
+            "id": "k4mxvu5ifafqznv1",
+            "type": "text",
+            "content": {
+                "text": "## Actions",
+                "useMarkdown": "yes",
+                "alignment": "center"
+            },
+            "parentId": "s5vgsdanhuv8cqq1",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "otra4tggyuqh6ir1": {
+            "id": "otra4tggyuqh6ir1",
+            "type": "text",
+            "content": {
+                "text": "You selected @{database.input_file_name}",
+                "primaryTextColor": "@{my_app.primary}"
+            },
+            "parentId": "4dqq9nt6y8fru34k",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "1xknpvvd5d1gvltl": {
+            "id": "1xknpvvd5d1gvltl",
+            "type": "columns",
+            "content": {},
+            "parentId": "nzz3eq4dhgoo3l6c",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "dvjg3iy3lxkokfuw": {
+            "id": "dvjg3iy3lxkokfuw",
+            "type": "column",
+            "content": {
+                "width": "1"
+            },
+            "parentId": "1xknpvvd5d1gvltl",
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "4dqq9nt6y8fru34k": {
+            "id": "4dqq9nt6y8fru34k",
+            "type": "column",
+            "content": {
+                "width": "1",
+                "horizontalAlignment": "left",
+                "verticalAlignment": "center",
+                "separatorColor": ""
+            },
+            "parentId": "1xknpvvd5d1gvltl",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        }
+    }
+}
