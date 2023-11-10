@@ -213,7 +213,7 @@
                 "useMarkdown": "yes"
             },
             "parentId": "zro97bxtpce6kowq",
-            "position": 3,
+            "position": 4,
             "handlers": {},
             "visible": "chatbot.response_visible"
         },
@@ -442,6 +442,28 @@
             "position": 1,
             "handlers": {},
             "visible": true
+        },
+        "7diqhcg4iglig3ly": {
+            "id": "7diqhcg4iglig3ly",
+            "type": "message",
+            "content": {
+                "message": "@{database.parse_message}"
+            },
+            "parentId": "4dqq9nt6y8fru34k",
+            "position": 1,
+            "handlers": {},
+            "visible": true
+        },
+        "nyz08p75px3l5a5v": {
+            "id": "nyz08p75px3l5a5v",
+            "type": "message",
+            "content": {
+                "message": "@{chatbot.thinking_message}"
+            },
+            "parentId": "zro97bxtpce6kowq",
+            "position": 3,
+            "handlers": {},
+            "visible": ""
         }
     }
 }
