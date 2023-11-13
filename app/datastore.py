@@ -28,19 +28,19 @@ def save_metadata_database(data):
 def insert_pdf_to_store(filename: str, state):
     fileid = filename.replace('.', '')
     try:
-        loader = PyPDFLoader(TEMP_PDF_FILE_NAME)
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=0)
+        loader = PyPDFLoader(TEMP_PDF_FILE_NAME)   # uses the pypdf to parse the PDF
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=0)   # create a character text splitters
         state['database']['parse_message'] = '% Extracting texts'
         pages = loader.load_and_split(
             text_splitter=text_splitter
-        )
+        )   # split the parse PDF text into Chunks
         docs = []
         for page in pages:
             page.metadata['docfilename'] = filename
             page.metadata['docfileid'] = fileid
             docs.append(page)
         state['database']['parse_message'] = '% Extracting embeddings'
-        chroma_client.add_documents(docs)
+        chroma_client.add_documents(docs)       # computes the embeddings and stores the documents into vector DB
 
         state['database']['parse_message'] = '% Saving to vector store'
         chroma_client.persist()   # save to the disk
@@ -77,7 +77,7 @@ def delete_pdf_from_store(fileid: str, state):
         state['database']['parse_message'] = f"- {str(e)}\nPlease try again"    
 
 def get_llm_response(query: str):
-    ret = chroma_client.as_retriever().get_relevant_documents(query)
+    ret = chroma_client.as_retriever().get_relevant_documents(query)   # get the closest matched document of this query
     prompt = """
     Based on the following context, try to answer the question only using the context. If the answer is not provided in the context, do not try to guess, simply say that you do not know.
     Also, it is VERY important that you do NOT use the word 'context' in your answer response.
