@@ -2,6 +2,7 @@
 temp
 temp.pdf
 app/database/chroma/*
+creds.json
 
 
 # Byte-compiled / optimized / DLL files
